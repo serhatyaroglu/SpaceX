@@ -12,7 +12,6 @@ public class AlertButton : NSObject{
         self.title = title
         self.completion = completion
         self.style = style
-        
     }
     public var title = String()
     public var completion: () -> ()

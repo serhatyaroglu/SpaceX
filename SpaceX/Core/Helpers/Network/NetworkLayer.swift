@@ -20,10 +20,4 @@ final class NetworkLayer: NetworkProtocol {
     func getRequest(_ endpoint: NetworkEndPoint, completion: @escaping (Swift.Result<[Launch], NetworkError>) -> Void) {
         NetworkManager.shared.request(endpoint, completion: completion)
     }
-//
-//    func getExecutation(_ endpoint: NetworkEndPoint, completion: @escaping (Swift.Result<Launch, NetworkError>) -> Void) {
-//        NetworkManager.shared.request(endpoint, completion: completion)
-//    }
-//
-    
 }

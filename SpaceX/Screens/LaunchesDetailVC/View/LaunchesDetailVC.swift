@@ -71,9 +71,9 @@ class LaunchesDetailVC: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .white
         setupLayout()
     }
@@ -91,9 +91,8 @@ class LaunchesDetailVC: UIViewController {
                 make.left.right.equalToSuperview().inset(20)
             }
         }
-    
-        
     }
+    
     private func setupLayout() {
         view.addSubview(backButton)
         view.addSubview(titleLabel)
@@ -172,6 +171,7 @@ class LaunchesDetailVC: UIViewController {
             make.bottom.equalToSuperview().offset(-5)
         }
     }
+    
     func stateControl(){
         if launch.upcoming{
             blackInfoView.isHidden = false
@@ -182,6 +182,7 @@ class LaunchesDetailVC: UIViewController {
             setAttributedText()
         }
     }
+    
     func setAttributedText() {
         let normalText = "Launch Date: "
         let truncatedDate = String(launch.dateUtc.prefix(10))
@@ -198,9 +199,9 @@ class LaunchesDetailVC: UIViewController {
         ])
         
         attributedString.append(boldAttributedString)
-        
         launchDateLabel.attributedText = attributedString
     }
+    
     @objc private func backTapped() {
         dismiss(animated: true)
     }

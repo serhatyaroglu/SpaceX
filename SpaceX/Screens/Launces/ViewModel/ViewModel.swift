@@ -32,6 +32,7 @@ class ViewModel {
     func numberOfRows() -> Int {
         return Launches.count
     }
+    
     func item(for row: Int) -> Launch {
         return Launches[row]
     }

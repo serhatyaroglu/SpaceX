@@ -39,14 +39,12 @@ class GridInfoView: UIView {
         gridStack.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
         setupSeparators()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     func configure(
         landingAttempt: (String, String),
@@ -111,7 +109,6 @@ class GridInfoView: UIView {
         let rowHeight = totalHeight / 3
         
         verticalSeparator.frame = CGRect(x: columnWidth, y: 0, width: 1, height: totalHeight)
-        
         horizontalSeparator1.frame = CGRect(x: 0, y: rowHeight, width: totalWidth, height: 1)
         horizontalSeparator2.frame = CGRect(x: 0, y: rowHeight * 2, width: totalWidth, height: 1)
     }

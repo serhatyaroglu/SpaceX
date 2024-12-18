@@ -28,8 +28,8 @@ class LaunchesVC: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    let viewModel = ViewModel()
     
+    let viewModel = ViewModel()
     private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -67,10 +67,9 @@ class LaunchesVC: UIViewController {
             make.top.equalTo(segmentedControl.snp.bottom).offset(24)
             make.bottom.equalToSuperview()
             make.left.right.equalToSuperview().inset(20)
-            
         }
     }
-
+    
     @objc private func segmentChanged(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
@@ -83,6 +82,7 @@ class LaunchesVC: UIViewController {
         }
         
     }
+    
     private func setupRefreshControl() {
         DispatchQueue.main.async {
             LottieManager.showFullScreenLottie(animation: .loadingCircle2)
@@ -90,6 +90,7 @@ class LaunchesVC: UIViewController {
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(handlePullToRefresh), for: .valueChanged)
     }
+    
     @objc private func handlePullToRefresh() {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -109,7 +110,6 @@ class LaunchesVC: UIViewController {
             viewModel.fetchLaunches(for: .upcoming)
         }
     }
-   
 }
 
 extension LaunchesVC: ViewModelDelegate {

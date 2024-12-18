@@ -17,17 +17,17 @@ class SocialMediaView: UIView {
         super.init(frame: frame)
         setupLayout()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func setupLayout() {
         addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-
+        
         scrollView.addSubview(stackView)
         stackView.axis = .vertical
         stackView.spacing = 16
@@ -36,7 +36,7 @@ class SocialMediaView: UIView {
             make.width.equalTo(scrollView.snp.width)
         }
     }
-
+    
     func configure(launch: Launch) {
         stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
@@ -74,7 +74,7 @@ class SocialMediaView: UIView {
         container.layer.borderColor = UIColor(white: 0.9, alpha: 1.0).cgColor
         container.layer.borderWidth = 1
         container.isUserInteractionEnabled = true
-
+        
         let iconImageView = UIImageView()
         iconImageView.image = UIImage(named: iconName)
         iconImageView.contentMode = .scaleAspectFill
@@ -96,6 +96,7 @@ class SocialMediaView: UIView {
             make.centerY.equalToSuperview()
             make.left.equalTo(iconImageView.snp.right).offset(12)
         }
+        
         let arrowImageView = UIImageView()
         arrowImageView.image = UIImage(systemName: "chevron.right")
         arrowImageView.contentMode = .scaleAspectFit
@@ -106,9 +107,7 @@ class SocialMediaView: UIView {
             make.width.equalTo(8)
             make.height.equalTo(14)
         }
-   
-      
-
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(linkTapped(_:)))
         container.addGestureRecognizer(tap)
         container.accessibilityHint = url
@@ -118,12 +117,10 @@ class SocialMediaView: UIView {
             make.height.equalTo(64)
         }
     }
-
+    
     @objc private func linkTapped(_ gesture: UITapGestureRecognizer) {
         if let urlString = gesture.view?.accessibilityHint, let url = URL(string: urlString) {
             UIApplication.shared.open(url)
         }
     }
 }
-
-

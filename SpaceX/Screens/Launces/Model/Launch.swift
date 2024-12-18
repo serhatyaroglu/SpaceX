@@ -26,7 +26,6 @@ struct Launch: Codable {
         case cores
     }
     
-    
     struct Links: Codable {
         let patch: Patch?
         let reddit: Reddit?

@@ -48,8 +48,6 @@ class LaunchesCell: UITableViewCell {
         return mainView
     }()
     
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(mainView)
@@ -85,25 +83,25 @@ class LaunchesCell: UITableViewCell {
             make.centerY.equalTo(iconImageView.snp.centerY)
             make.right.equalToSuperview().inset(16)
         }
-        
     }
+    
     func configure(with object: Launch) {
         titleLabel.text = object.name
         
-            if let date = object.dateUtc.toDate(.isoDateTimeMilliSec) {
-                let displayFormatter = DateFormatter()
-                displayFormatter.dateFormat = "yyyy-MM-dd - HH:mm"
-                displayFormatter.locale = Locale(identifier: "en_US_POSIX")
-                
-                let displayDateString = displayFormatter.string(from: date)
-                subtitleLabel.text = displayDateString
-            } else {
-                subtitleLabel.text = "-"
-            }
-
+        if let date = object.dateUtc.toDate(.isoDateTimeMilliSec) {
+            let displayFormatter = DateFormatter()
+            displayFormatter.dateFormat = "yyyy-MM-dd - HH:mm"
+            displayFormatter.locale = Locale(identifier: "en_US_POSIX")
+            
+            let displayDateString = displayFormatter.string(from: date)
+            subtitleLabel.text = displayDateString
+        } else {
+            subtitleLabel.text = "-"
+        }
+        
         iconImageView.kf.setImage(with: object.links?.patch?.small.flatMap(URL.init), placeholder: UIImage(named: "img_rocket"))
-
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

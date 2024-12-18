@@ -59,11 +59,7 @@ class LaunchDateView: UIView {
     func configure(date: String) {
         let truncatedDate = String(date.prefix(10))
         launchDateValueLabel.text = truncatedDate
-        
-        
         startTimer(date: date)
-        
-        
     }
     
     private func setupLayout() {
@@ -148,7 +144,6 @@ class LaunchDateView: UIView {
         
         return components.joined(separator: " ")
     }
-    
     
     deinit {
         timer?.invalidate()

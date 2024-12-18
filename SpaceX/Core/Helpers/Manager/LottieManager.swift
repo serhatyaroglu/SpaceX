@@ -11,7 +11,6 @@ import Lottie
 
 public class LottieManager{
     
-    
     public static func createLottie(animation : AnimationType) -> LottieAnimationView {
         
         var animLoading = LottieAnimationView()
@@ -26,7 +25,7 @@ public class LottieManager{
             animLoading = LottieAnimationView(filePath: animationURL!)
             break
         }
-       
+        
         animLoading.backgroundColor = .clear
         animLoading.loopMode = .loop
         animLoading.animationSpeed = 1
@@ -34,8 +33,6 @@ public class LottieManager{
         animLoading.play()
         return animLoading
     }
-
-    
     
     public static func showFullScreenLottie(animation : AnimationType, width : Int? = nil, color : UIColor? = nil, backgroundOpacity : Double = 0.65, playOnce : Bool = false, speed : Double = 1) {
         
@@ -53,9 +50,6 @@ public class LottieManager{
         
         let defaultAnimationWidht = animation.rawValue.width
         let defaultAnimationName = animation.rawValue.name
-        
-      
-        
         var animLoading = LottieAnimationView()
         
         switch animation {
@@ -82,8 +76,6 @@ public class LottieManager{
         }else{
             animLoading.play()
         }
-      
-        
         
         if let color{
             let viewTint = UIView()
@@ -94,9 +86,6 @@ public class LottieManager{
         }
         
         window.addSubview(viewLoading)
-        
-        
-
     }
     
     public static func removeFullScreenLottie(){
@@ -111,28 +100,21 @@ public class LottieManager{
         }
     }
     
-    
-    
-     public enum AnimationType : RawRepresentable{
-         
-         case loadingCircle2
-   
-         case custom(name : String)
-         
+    public enum AnimationType : RawRepresentable{
         
+        case loadingCircle2
+        case custom(name : String)
         public typealias RawValue = (name: String, width: Int)
         
         public var rawValue: RawValue {
             switch self {
             case .custom(name: let name):
                 return (name: name, width: 100)
-  
+                
             case .loadingCircle2:
                 return (name: "loadingCircle2", width: 120)
- 
             }
         }
-        
         
         public init?(rawValue: RawValue) {
             switch rawValue {
@@ -140,10 +122,5 @@ public class LottieManager{
                 return nil
             }
         }
-        
-        
     }
-    
-    
 }
-

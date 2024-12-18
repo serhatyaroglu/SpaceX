@@ -26,7 +26,6 @@ public class AlertManager{
         viewController.present(alert, animated: true, completion: nil)
     }
     
-    
     private static var alertController: UIAlertController?
     
     public static func presentLoadingAlert(
@@ -44,7 +43,7 @@ public class AlertManager{
         viewController.present(alertController!, animated: true, completion: nil)
         
         spinner.snp.makeConstraints { make in
-            make.bottom.equalTo(alertController!.view).inset(20) // Adjust the top constraint
+            make.bottom.equalTo(alertController!.view).inset(20)
             make.centerX.equalTo(alertController!.view)
         }
         alertController?.view.snp.makeConstraints { make in
@@ -54,7 +53,7 @@ public class AlertManager{
     }
     
     public static func updateLoadingAlert(title: String? = nil, message: String? = nil) {
-      
+        
         if let title{
             alertController?.title = title
         }
@@ -62,7 +61,7 @@ public class AlertManager{
         if let message{
             alertController?.message = message
         }
-      
+        
     }
     
     public static func dismissLoadingAlert() {
@@ -81,7 +80,6 @@ public class AlertManager{
         viewController: UIViewController,
         height : CGFloat = 130
     ) {}
-    
 }
 
 

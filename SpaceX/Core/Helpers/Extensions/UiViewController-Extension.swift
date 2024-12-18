@@ -32,7 +32,6 @@ extension UIViewController {
         destinationVC.isHeroEnabled = true
         destinationVC.modalPresentationStyle = .fullScreen
         self.present(destinationVC, animated: true)
-        
     }
 
     public func presentWithoutAnimation(destinationVC: UIViewController) {

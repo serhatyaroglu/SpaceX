@@ -28,7 +28,7 @@ protocol NetworkEndpointDelegate {
 enum NetworkEndPoint {
     case upcoming
     case past
-   case query
+    case query
 }
 
 extension NetworkEndPoint: NetworkEndpointDelegate {
@@ -38,9 +38,8 @@ extension NetworkEndPoint: NetworkEndpointDelegate {
             return  "https://api.spacexdata.com/v5/launches/upcoming"
         case .past:
             return"https://api.spacexdata.com/v5/launches/past"
-       case .query:
+        case .query:
             return "https://api.spacexdata.com/v5/launches/query"
-
         }
     }
     
@@ -50,7 +49,6 @@ extension NetworkEndPoint: NetworkEndpointDelegate {
                 .get
         }
     }
-    
     
     func request() -> URLRequest {
         guard let url = URL(string: baseURL) else {
