@@ -1,0 +1,15 @@
+{
+  "originHash" : "95722f3a37b875ccd32a853f5481eb5a70f83df2032f39e4ae0149611ccfe60a",
+  "pins" : [
+    {
+      "identity" : "flipclock_swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OmerErbalta/FlipClock_Swift",
+      "state" : {
+        "revision" : "d0da21756819600c11ee626307a262b903ff46b1",
+        "version" : "1.1.1"
+      }
+    }
+  ],
+  "version" : 3
+}
